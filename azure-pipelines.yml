@@ -16,7 +16,7 @@ steps:
       sleep 3
 - task: Bash@3
   inputs:
-    filePath: 'snowsql-1.2.9-linux_x86_64.bash'
+    filePath: 'snowsql-1.1.86-linux_x86_64.bash'
   env:
     SNOWSQL_DEST: '~/snowflake'
     SNOWSQL_LOGIN_SHELL: '~/.profile'
