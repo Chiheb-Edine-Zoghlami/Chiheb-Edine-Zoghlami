@@ -17,9 +17,7 @@ steps:
 - task: Bash@3
   inputs:
     filePath: 'snowsql-1.1.86-linux_x86_64.bash'
-  env:
-    SNOWSQL_DEST: '~/snowflake'
-    SNOWSQL_LOGIN_SHELL: '~/.profile'
+
 
 - task: CmdLine@2
   inputs:
