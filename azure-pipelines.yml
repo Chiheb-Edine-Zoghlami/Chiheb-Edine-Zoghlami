@@ -1,0 +1,30 @@
+
+variables:
+- group: PROD
+
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+steps:
+- task: CmdLine@2
+  inputs:
+    script: |
+      curl -o snowsql-1.1.86-linux_x86_64.bash http://s3-us-west-2.amazonaws.com/sfc-snowsql-updates/bootstrap/1.1/linux_x86_64/snowsql-1.1.86-linux_x86_64.bash
+      echo " download is done "
+      sleep 3
+      echo "bin\ny" | bash snowsql-1.1.86-linux_x86_64.bash
+
+
+
+- task: CmdLine@2
+  inputs:
+    script: |
+      echo " install is done "
+      sleep 3
+      snowsql -v
+      echo " update  is done "
+      sleep 3
+      snowsql --help
+
