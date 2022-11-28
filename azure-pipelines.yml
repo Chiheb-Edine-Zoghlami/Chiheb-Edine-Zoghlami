@@ -1,7 +1,6 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
+
+variables:
+- group: PROD
 
 trigger:
 - main
@@ -13,6 +12,9 @@ steps:
   inputs:
     script: |
       apt-get update && apt-get --assume-yes install  curl
-      
       curl -o snowsql-1.1.86-linux_x86_64.bash http://s3-us-west-2.amazonaws.com/sfc-snowsql-updates/bootstrap/1.1/linux_x86_64/snowsql-1.1.86-linux_x86_64.bash
+      bash snowsql-1.1.86-linux_x86_64.bash && rm -f snowsql-1.1.86-linux_x86_64.bash
+      snowsql -v
+      snowsql --help
+
 
