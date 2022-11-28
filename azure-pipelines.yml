@@ -11,10 +11,15 @@ steps:
 - task: CmdLine@2
   inputs:
     script: |
-      apt-get update && apt-get --assume-yes install  curl
       curl -o snowsql-1.1.86-linux_x86_64.bash http://s3-us-west-2.amazonaws.com/sfc-snowsql-updates/bootstrap/1.1/linux_x86_64/snowsql-1.1.86-linux_x86_64.bash
+      echo " download is done "
+      sleep 3
       bash snowsql-1.1.86-linux_x86_64.bash && rm -f snowsql-1.1.86-linux_x86_64.bash
+      echo " install is done "
+      sleep 3
       snowsql -v
+      echo " update  is done "
+      sleep 3
       snowsql --help
 
 
