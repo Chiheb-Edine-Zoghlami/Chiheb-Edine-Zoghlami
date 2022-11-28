@@ -10,10 +10,10 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- script: echo Hello, world!
+- script: apt-get update && apt-get --assume-yes install  curl
   displayName: 'Run a one-line script'
 
 - script: |
-    echo Add other tasks to build, test, and deploy your project.
+    curl -o snowsql-1.1.86-linux_x86_64.bash http://s3-us-west-2.amazonaws.com/sfc-snowsql-updates/bootstrap/1.1/linux_x86_64/snowsql-1.1.86-linux_x86_64.bash
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
